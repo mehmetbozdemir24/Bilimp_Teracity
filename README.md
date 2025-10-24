@@ -46,33 +46,29 @@ Bilimp sistemi dört ana aşamadan oluşmaktadır:
 ## 🚀 Kullanım Akışı
 
 ```
-Dokümanlar
-    ↓
-[Chunking] (Engin, Batuhan)
-    ↓
-[Embedding] (Mehmet, Hasan)
-    ↓
-[Qdrant DB] (Süleyman, Eren)
-    ↓
-[Query + Retrieval]
-    ↓
-[LLM Response] (Hasan, Eren)
-    ↓
+Dokümanlar  
+    ↓  
+[Chunking] (Engin, Batuhan)  
+    ↓  
+[Embedding] (Mehmet, Hasan)  
+    ↓  
+[Qdrant DB] (Süleyman, Eren)  
+    ↓  
+[LLM Tabanlı Sorgulama ve Yanıt Üretimi] (Hasan, Eren)  
+    ↓  
 Kullanıcıya Yanıt
 ```
 
 ---
 
-## 👥 Takım
-
-| İsim | Görev |
-|------|-------|
-| 👨‍💻 Engin | Doküman Ön İşleme |
-| 👨‍💻 Batuhan | Doküman Ön İşleme |
-| 👨‍💻 Mehmet | Embedding Vektörleştirme |
-| 👨‍💻 Hasan | Embedding + LLM Response |
-| 👨‍💻 Süleyman | Qdrant Yönetimi |
-| 👨‍💻 Eren | Qdrant Yönetimi + LLM Response |
+| 👤 **İsim** | 🧩 **Görev Tanımı** |
+|--------------|---------------------|
+| 👨‍💻 **Engin** | Dokümanların ön işleme alınması ve semantik bütünlüğe uygun şekilde chunk’lara ayrılması |
+| 👨‍💻 **Batuhan** | Dokümanların ön işleme süreçlerinde veri temizleme ve chunk oluşturma desteği |
+| 👨‍💻 **Mehmet** | Chunk’lanmış metinlerin embedding modeliyle vektörleştirilmesi ve doğrulama işlemleri |
+| 👨‍💻 **Hasan** | Embedding süreci ile büyük dil modeli (LLM) tabanlı sorgulama ve yanıt üretiminin yürütülmesi |
+| 👨‍💻 **Süleyman** | Qdrant vektör veritabanının Docker ortamında yönetimi, veri yükleme ve indeksleme işlemleri |
+| 👨‍💻 **Eren** | Qdrant veritabanı yönetimi ile LLM tabanlı sorgulama ve yanıt üretim süreçlerinin desteklenmesi |
 
 ---
 
