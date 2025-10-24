@@ -6,7 +6,7 @@ Bu rehber, "Büyük Dil Modeli Temelli Kurumsal Döküman Danışmanı" projesin
 ## Sistem Mimarisi ve İş Akışı Diyagramı
 Aşağıdaki diyagram, projenin 7 ana adımdan oluşan uçtan uca iş akışını görselleştirmektedir.
 
-![image1](image1)
+![Bilimp Sistem Mimarisi ve İş Akışı Diyagramı](./mimari.jpg)
 
 ## Adım Adım İş Akışı Detayları
 
