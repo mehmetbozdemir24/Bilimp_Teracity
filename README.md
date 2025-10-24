@@ -90,8 +90,8 @@ Kullanıcıya Yanıt
 
 ```bash
 # Repository'yi klonlayın
-git clone https://github.com/mehmetbozdemir24/Bilimp_Terracity.git
-cd Bilimp_Terracity
+git clone https://github.com/mehmetbozdemir24/Bilimp_Teracity.git
+cd Bilimp_Teracity
 
 # Gerekli kütüphaneleri yükleyin
 pip install -r requirements.txt
@@ -118,7 +118,7 @@ Her modül için ayrıntılı dokümantasyon:
 
 ## 📄 Lisans
 
-Bu proje Terracity Firması tarafından geliştirilmiştir.
+Bu proje Teracity Firması tarafından geliştirilmiştir.
 
 ---
 
