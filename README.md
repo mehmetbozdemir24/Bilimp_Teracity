@@ -54,7 +54,7 @@ Kullanıcıya Yanıt
 |---|---|
 | **Embedding Modeli** | Cosmos-e5-large |
 | **Vektör Veritabanı** | Qdrant (Docker) |
-| **LLM Modelleri** | Gemma3-12B, Qwen3-9B |
+| **LLM Modelleri** | Gemma3-12B, Qwen3-8B |
 | **Container** | Docker |
 
 ---
