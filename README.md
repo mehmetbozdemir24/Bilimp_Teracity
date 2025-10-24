@@ -1,6 +1,6 @@
 # 🤖 Bilimp_Teracity
 
-**Terracity Firmasına ait Bilip Yazılımı için Asistan Tasarımı**
+**Teracity Firmasına ait Bilip Yazılımı için Asistan Tasarımı**
 
 Bilimp, kurumsal dokümanlardan çıkarılan bilgiler üzerinde anlam-temelli aramalar gerçekleştiren ve akıllı yanıtlar üreten bir yapay zeka asistanıdır. Sistem, modern derin öğrenme modelleri ve vektör veritabanı teknolojisini kullanarak hızlı, doğru ve bağlamsal yanıtlar sağlamaktadır.
 
