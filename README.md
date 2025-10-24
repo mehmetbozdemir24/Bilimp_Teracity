@@ -27,7 +27,7 @@ TÜBİTAK 1505 Projesi sistemi dört ana aşamadan oluşur.
 
 ### 4️⃣ Akıllı Yanıt Üretimi
 - Qdrant’tan bağlama uygun sonuçların çağrılması  
-- **Gemma3-12B** ve **Qwen3-9B** ile doğal dil yanıtlarının üretilmesi  
+- **Gemma3-12B** ve **Qwen3-8B** ile doğal dil yanıtlarının üretilmesi  
 - **Görevliler:** Hasan, Eren
 
 ---
