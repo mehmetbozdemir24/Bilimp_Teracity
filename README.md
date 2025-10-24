@@ -1,4 +1,4 @@
-<img width="2037" height="1145" alt="image" src="https://github.com/user-attachments/assets/cfa996af-9c8a-4d9e-b3e7-0826ecc71138" /># 🤖 TÜBİTAK 1505 Projesi
+# 🤖 TÜBİTAK 1505 Projesi
 
 **TÜBİTAK 1505 için Asistan Tasarımı**
 
