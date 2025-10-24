@@ -1,4 +1,4 @@
-# 🤖 Bilimp_Terracity
+# 🤖 Bilimp_Teracity
 
 **Terracity Firmasına ait Bilip Yazılımı için Asistan Tasarımı**
 
