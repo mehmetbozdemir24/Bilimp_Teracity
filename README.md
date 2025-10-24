@@ -108,10 +108,11 @@ python main.py
 ## 📚 Dokümentasyon
 
 Her modül için ayrıntılı dokümantasyon:
-- `docs/chunking.md` - Doküman işleme
-- `docs/embedding.md` - Vektörleştirme
-- `docs/qdrant.md` - Veritabanı yönetimi
-- `docs/llm.md` - Yanıt üretimi
+- `docs/1_chunking_guide.md` - Doküman işleme
+- `docs/2_embedding_guide.md` - Vektörleştirme
+- `docs/3_qdrant_setup_guide.md` - Veritabanı yönetimi
+- `docs/4_llm_response_guide.md` - Yanıt üretimi
+- `docs/5_complete_workflow.md` - Toplu İş Akışı
 
 ---
 
