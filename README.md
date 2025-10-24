@@ -1,74 +1,74 @@
-# 🤖 Bilimp_Teracity
+# 🤖 TÜBİTAK 1505 Projesi
 
-**Teracity Firmasına ait Bilip Yazılımı için Asistan Tasarımı**
+**TÜBİTAK 1505 için Asistan Tasarımı**
 
-Bilimp, kurumsal dokümanlardan çıkarılan bilgiler üzerinde anlam-temelli aramalar gerçekleştiren ve akıllı yanıtlar üreten bir yapay zeka asistanıdır. Sistem, modern derin öğrenme modelleri ve vektör veritabanı teknolojisini kullanarak hızlı, doğru ve bağlamsal yanıtlar sağlamaktadır.
+TÜBİTAK 1505 Projesi, kurumsal dokümanlardan çıkarılan bilgiler üzerinde anlam-temelli aramalar yapan ve akıllı yanıtlar üreten bir yapay zekâ asistanıdır. Sistem, modern derin öğrenme modelleri ve vektör veritabanı teknolojileriyle hızlı, doğru ve bağlamsal yanıtlar sağlar.
 
 ---
 
 ## 📋 Sistem Mimarisi
 
-Bilimp sistemi dört ana aşamadan oluşmaktadır:
+TÜBİTAK 1505 Projesi sistemi dört ana aşamadan oluşur.
 
-### 1️⃣ **Doküman Ön İşleme & Chunking**
-- Blimp sistemindeki dokümanların okunması ve temizlenmesi
-- Metin parçalarına (chunks) bölünmesi
-- **Görevliler**: Engin, Batuhan
+### 1️⃣ Doküman Ön İşleme & Chunking
+- Proje kapsamındaki dokümanların okunması ve temizlenmesi  
+- Metinlerin anlamlı parçalara (chunks) bölünmesi  
+- **Görevliler:** Engin, Batuhan
 
-### 2️⃣ **Embedding Vektörleştirme**
-- Cosmos-e5-large modeliyle metin parçalarının vektörlere dönüştürülmesi
-- Anlamsal temsil oluşturulması
-- **Görevliler**: Mehmet, Hasan
+### 2️⃣ Embedding Vektörleştirme
+- Cosmos-e5-large ile metin parçalarının vektörleştirilmesi  
+- Anlamsal temsil oluşturulması  
+- **Görevliler:** Mehmet, Hasan
 
-### 3️⃣ **Vektör Veritabanı Yönetimi**
-- Embedding vektörlerinin Docker üzerinden Qdrant veritabanına yüklenmesi
-- Hızlı ve ölçeklenebilir arama altyapısı
-- **Görevliler**: Süleyman, Eren
+### 3️⃣ Vektör Veritabanı Yönetimi
+- Embedding’lerin Docker üzerinden Qdrant’a yüklenmesi  
+- Hızlı ve ölçeklenebilir arama altyapısının sağlanması  
+- **Görevliler:** Süleyman, Eren
 
-### 4️⃣ **Akıllı Yanıt Üretimi**
-- Qdrant verilerinden anlam temelli sorgu sonuçlarının alınması
-- **Gemma3-12B** ve **Qwen3-8B** modellerinin kullanılarak doğal dil yanıtları oluşturulması
-- **Görevliler**: Hasan, Eren
+### 4️⃣ Akıllı Yanıt Üretimi
+- Qdrant’tan bağlama uygun sonuçların çağrılması  
+- **Gemma3-12B** ve **Qwen3-8B** ile doğal dil yanıtlarının üretilmesi  
+- **Görevliler:** Hasan, Eren
+
+---
+
+## 🚀 Kullanım Akışı
+
+Dokümanlar  
+  ↓  
+[Chunking] (Engin, Batuhan)  
+  ↓  
+[Embedding] (Mehmet, Hasan)  
+  ↓  
+[Qdrant DB] (Süleyman, Eren)  
+  ↓  
+[LLM Tabanlı Sorgulama ve Yanıt Üretimi] (Hasan, Eren)  
+  ↓  
+Kullanıcıya Yanıt
 
 ---
 
 ## 🛠️ Teknoloji Stack
 
 | Bileşen | Teknoloji |
-|---------|-----------|
+|---|---|
 | **Embedding Modeli** | Cosmos-e5-large |
 | **Vektör Veritabanı** | Qdrant (Docker) |
 | **LLM Modelleri** | Gemma3-12B, Qwen3-8B |
-| **Container Teknolojisi** | Docker |
+| **Container** | Docker |
 
 ---
 
-## 🚀 Kullanım Akışı
-
-```
-Dokümanlar  
-    ↓  
-[Chunking] (Engin, Batuhan)  
-    ↓  
-[Embedding] (Mehmet, Hasan)  
-    ↓  
-[Qdrant DB] (Süleyman, Eren)  
-    ↓  
-[LLM Tabanlı Sorgulama ve Yanıt Üretimi] (Hasan, Eren)  
-    ↓  
-Kullanıcıya Yanıt
-```
-
----
+## 👥 Görev Dağılımı
 
 | 👤 **İsim** | 🧩 **Görev Tanımı** |
-|--------------|---------------------|
-| 👨‍💻 **Engin** | Dokümanların ön işleme alınması ve semantik bütünlüğe uygun şekilde chunk’lara ayrılması |
-| 👨‍💻 **Batuhan** | Dokümanların ön işleme süreçlerinde veri temizleme ve chunk oluşturma desteği |
-| 👨‍💻 **Mehmet** | Chunk’lanmış metinlerin embedding modeliyle vektörleştirilmesi ve doğrulama işlemleri |
-| 👨‍💻 **Hasan** | Embedding süreci ile büyük dil modeli (LLM) tabanlı sorgulama ve yanıt üretiminin yürütülmesi |
-| 👨‍💻 **Süleyman** | Qdrant vektör veritabanının Docker ortamında yönetimi, veri yükleme ve indeksleme işlemleri |
-| 👨‍💻 **Eren** | Qdrant veritabanı yönetimi ile LLM tabanlı sorgulama ve yanıt üretim süreçlerinin desteklenmesi |
+|---|---|
+| **Engin** | Dokümanların ön işlenmesi ve chunk’lara ayrılması |
+| **Batuhan** | Chunk oluşturma ve veri temizleme desteği |
+| **Mehmet** | Metinlerin embedding modeliyle vektörleştirilmesi |
+| **Hasan** | Embedding ve LLM tabanlı yanıt üretimi |
+| **Süleyman** | Qdrant yönetimi, veri yükleme ve indeksleme |
+| **Eren** | Qdrant yönetimi ve LLM tabanlı yanıt desteği |
 
 ---
 
@@ -78,48 +78,91 @@ Kullanıcıya Yanıt
 - Docker & Docker Compose
 - Qdrant Server
 - PyTorch / TensorFlow
-- Transformers Library
+- Transformers
 
 ---
 
-## 🔧 Kurulum
+# Git Komutları Rehberi
 
+## 1. GitHub'dan Bilgisayara Klonlama
 ```bash
-# Repository'yi klonlayın
-git clone https://github.com/mehmetbozdemir24/Bilimp_Teracity.git
-cd Bilimp_Teracity
+git clone https://github.com/mehmetbozdemir24/Tubitak_1505_Proje.git
+cd Tubitak_1505_Proje
+```
 
-# Gerekli kütüphaneleri yükleyin
-pip install -r requirements.txt
+## 2. Branch'ların Listelenmesi
+```bash
+# Tüm branch'ları görmek için
+git branch -a
 
-# Docker ile Qdrant başlatın
-docker-compose up -d
+# Sadece yerel branch'ları görmek için
+git branch
+```
 
-# Sistemi başlatın
-python main.py
+## 3. Branch Seçilmesi
+```bash
+# Mevcut bir branch'e geçiş yapmak için
+git checkout chunking
+
+# Veya yeni bir branch oluşturup geçiş yapmak için
+git checkout -b yeni-branch-adi
+```
+
+## 4. Commit Etmek
+```bash
+# Değişiklikleri stage'e eklemek
+git add .
+
+# Veya belirli bir dosyayı eklemek
+git add dosya_adi.py
+
+# Commit mesajı ile kaydetmek
+git commit -m "Commit mesajınız"
+```
+
+## 5. Push Etmek
+```bash
+# Değişiklikleri uzak repoya göndermek
+git push origin branch-adi
+
+# Örnek:
+git push origin chunking
+```
+
+## 6. Repoda Değişiklik Varsa Güncel Halini Pull Etmek
+```bash
+# Uzak repodaki değişiklikleri kontrol etmek
+git fetch origin
+
+# Değişiklikleri birleştirmek
+git pull origin branch-adi
+
+# Veya direkt pull yapmak
+git pull
+
+# Eğer çakışma varsa zorla güncellemek için
+git reset --hard origin/main
 ```
 
 ---
 
-## 📚 Dokümentasyon
+## 📚 Dokümantasyon
 
-Her modül için ayrıntılı dokümantasyon:
-- `docs/1_chunking_guide.md` - Doküman işleme
-- `docs/2_embedding_guide.md` - Vektörleştirme
-- `docs/3_qdrant_setup_guide.md` - Veritabanı yönetimi
-- `docs/4_llm_response_guide.md` - Yanıt üretimi
-- `docs/5_complete_workflow.md` - Toplu İş Akışı
+- `docs/1_chunking_guide.md` — Doküman işleme
+- `docs/2_embedding_guide.md` — Vektörleştirme
+- `docs/3_qdrant_setup_guide.md` — Veritabanı yönetimi
+- `docs/4_llm_response_guide.md` — Yanıt üretimi
+- `docs/5_complete_workflow.md` — Toplu İş Akışı
 
 ---
 
 ## 📄 Lisans
 
-Bu proje Teracity Firması tarafından geliştirilmiştir.
+Bu proje **TÜBİTAK 1505 Projesi** kapsamında geliştirilmiştir.
 
 ---
 
 ## 📞 İletişim
 
-Sorular veya öneriler için lütfen Issues bölümünü kullanınız.
-
-**Geliştirici**: mehmetbozdemir24
+Sorular/öneriler için lütfen **Issues** bölümünü kullanınız.  
+**Geliştirici:** mehmetbozdemir24
