@@ -1,0 +1,4 @@
+langchain
+pypdf
+nltk
+sentence-transformers
