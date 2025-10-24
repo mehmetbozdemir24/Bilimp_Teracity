@@ -27,7 +27,7 @@ Bilimp sistemi dört ana aşamadan oluşmaktadır:
 
 ### 4️⃣ **Akıllı Yanıt Üretimi**
 - Qdrant verilerinden anlam temelli sorgu sonuçlarının alınması
-- **Gemma3-12B** ve **Qwen3-9B** modellerinin kullanılarak doğal dil yanıtları oluşturulması
+- **Gemma3-12B** ve **Qwen3-8B** modellerinin kullanılarak doğal dil yanıtları oluşturulması
 - **Görevliler**: Hasan, Eren
 
 ---
