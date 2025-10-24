@@ -86,7 +86,7 @@ Kullanıcıya Yanıt
 
 ```bash
 git clone https://github.com/mehmetbozdemir24/Tubitak_1505_Proje.git
-cd Tubitak_1505_Projesi
+cd Tubitak_1505_Proje
 pip install -r requirements.txt
 docker-compose up -d
 python main.py
