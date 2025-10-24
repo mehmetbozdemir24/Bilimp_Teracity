@@ -2,3 +2,16 @@ langchain
 pypdf
 nltk
 sentence-transformers
+keybert
+PyMuPDF
+pillow
+pytesseract
+google-generativeai
+huggingface-hub
+torch
+qdrant-client
+langchain-qdrant
+langchain-huggingface
+langchain-ollama
+fastapi
+pydantic
