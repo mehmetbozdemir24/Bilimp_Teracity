@@ -82,14 +82,66 @@ Kullanıcıya Yanıt
 
 ---
 
-## 🔧 Kurulum
+# Git Komutları Rehberi
 
+## 1. GitHub'dan Bilgisayara Klonlama
 ```bash
 git clone https://github.com/mehmetbozdemir24/Tubitak_1505_Proje.git
 cd Tubitak_1505_Proje
-pip install -r requirements.txt
-docker-compose up -d
-python main.py
+```
+
+## 2. Branch'ların Listelenmesi
+```bash
+# Tüm branch'ları görmek için
+git branch -a
+
+# Sadece yerel branch'ları görmek için
+git branch
+```
+
+## 3. Branch Seçilmesi
+```bash
+# Mevcut bir branch'e geçiş yapmak için
+git checkout chunking
+
+# Veya yeni bir branch oluşturup geçiş yapmak için
+git checkout -b yeni-branch-adi
+```
+
+## 4. Commit Etmek
+```bash
+# Değişiklikleri stage'e eklemek
+git add .
+
+# Veya belirli bir dosyayı eklemek
+git add dosya_adi.py
+
+# Commit mesajı ile kaydetmek
+git commit -m "Commit mesajınız"
+```
+
+## 5. Push Etmek
+```bash
+# Değişiklikleri uzak repoya göndermek
+git push origin branch-adi
+
+# Örnek:
+git push origin chunking
+```
+
+## 6. Repoda Değişiklik Varsa Güncel Halini Pull Etmek
+```bash
+# Uzak repodaki değişiklikleri kontrol etmek
+git fetch origin
+
+# Değişiklikleri birleştirmek
+git pull origin branch-adi
+
+# Veya direkt pull yapmak
+git pull
+
+# Eğer çakışma varsa zorla güncellemek için
+git reset --hard origin/main
 ```
 
 ---
