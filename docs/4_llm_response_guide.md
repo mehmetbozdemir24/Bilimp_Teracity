@@ -1,39 +1,52 @@
 # Ollama + Qdrant RAG Pipeline
 
-## ADIM 1: Ayarlar
-- Gerekli ayarların yapılması.
+Bu rehber, Ollama ve Qdrant kullanarak basit bir RAG (Retrieve and Generate) pipeline'ını anlatmaktadır. Bu pipeline, çalışanların şirketten ayrılma süreleri gibi sorulara yanıt vermek için kullanılabilir.
 
-## ADIM 2: Qdrant'tan Benzer İçerik Çekme
-- Qdrant veritabanından benzer içeriklerin çekilmesi için gerekli adımlar.
+## Süreç
 
-## ADIM 3: Prompt Hazırlama
-- Kullanıcıdan alınan bilgiye göre uygun prompt'un hazırlanması.
+1. **Soru Gömme**: Kullanıcıdan gelen soru, gömme (embedding) yöntemiyle vektör haline getirilir. Örneğin:
+   - Soru: "Terracity şirketinden çalışanların ayrılma süreleri nedir?"
+   - Gömme: `embed(question)`
 
-## ADIM 4: LLM Cevap Alma
-- Hazırlanan prompt ile LLM'den cevap alınması.
+2. **Qdrant Vektör Depolama**: Gömme vektörü, Qdrant vektör deposunda aranır. Bu işlem, benzer içeriklerin bulunmasını sağlar.
+   - Arama: `search_in_qdrant(embedded_question)`
 
-## FastAPI Örneği
-- Aşağıda basit bir FastAPI örneği verilmiştir:
+3. **Benzer İçerikleri Alma**: Qdrant, verilen gömme ile benzer olan içerik parçalarını döndürür.
+   - Benzer İçerikler: `get_similar_chunks()`
+
+4. **Ollama LLM Modeli**: Elde edilen içerikler, Ollama LLM modeli (Gemma3/Qwen3) ile işlenir.
+   - Model: `ollama_model.process(similar_chunks)`
+
+5. **Yanıt Dönüşü**: Model, kullanıcıya yanıt olarak döndürür.
+   - Yanıt: `return answer`
+
+## FastAPI Endpoint
+
+Aşağıda, yukarıdaki süreci gerçekleştiren bir FastAPI endpoint örneği verilmiştir:
 
 ```python
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
 app = FastAPI()
 
-@app.get("/get_answer/")
-async def get_answer(collection_name: str):
-    context = get_context(collection_name)
-    prompt = create_prompt(context)
-    answer = get_answer(prompt)
-    return answer
+class Question(BaseModel):
+    question: str
+
+@app.post("/ask/")
+async def ask_question(q: Question):
+    # Soru gömme
+    embedded_question = embed(q.question)
+    
+    # Qdrant'ta arama yap
+    similar_chunks = search_in_qdrant(embedded_question)
+    
+    # Ollama modelinden yanıt al
+    answer = ollama_model.process(similar_chunks)
+    
+    return {"answer": answer}
 ```
 
-## Test Kodları
-- Aşağıda test kodlarına örnek verilmiştir:
+Bu endpoint, kullanıcıdan bir soru alır, bunu gömer, Qdrant'ta arar ve benzer içerikler ile Ollama modelini kullanarak yanıt döndürür. 
 
-```python
-def test_get_answer():
-    response = client.get("/get_answer/?collection_name=test")
-    assert response.status_code == 200
-    assert "expected_answer" in response.json()
-```
+---
