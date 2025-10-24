@@ -85,7 +85,7 @@ Kullanıcıya Yanıt
 ## 🔧 Kurulum
 
 ```bash
-git clone https://github.com/mehmetbozdemir24/Tubitak_1505_Projesi.git
+git clone https://github.com/mehmetbozdemir24/Tubitak_1505_Proje.git
 cd Tubitak_1505_Projesi
 pip install -r requirements.txt
 docker-compose up -d
