@@ -1,0 +1,10 @@
+# Python Sanal Ortamı
+venv/
+/venv/
+
+# Python Önbellek Dosyaları
+__pycache__/
+*.pyc
+
+# IDE Ayar Dosyaları (VSCode)
+.vscode/
