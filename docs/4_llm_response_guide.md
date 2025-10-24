@@ -1,52 +1,73 @@
-# Ollama + Qdrant RAG Pipeline
+# Tam Python Kodu Örneği
 
-Bu rehber, Ollama ve Qdrant kullanarak basit bir RAG (Retrieve and Generate) pipeline'ını anlatmaktadır. Bu pipeline, çalışanların şirketten ayrılma süreleri gibi sorulara yanıt vermek için kullanılabilir.
-
-## Süreç
-
-1. **Soru Gömme**: Kullanıcıdan gelen soru, gömme (embedding) yöntemiyle vektör haline getirilir. Örneğin:
-   - Soru: "Terracity şirketinden çalışanların ayrılma süreleri nedir?"
-   - Gömme: `embed(question)`
-
-2. **Qdrant Vektör Depolama**: Gömme vektörü, Qdrant vektör deposunda aranır. Bu işlem, benzer içeriklerin bulunmasını sağlar.
-   - Arama: `search_in_qdrant(embedded_question)`
-
-3. **Benzer İçerikleri Alma**: Qdrant, verilen gömme ile benzer olan içerik parçalarını döndürür.
-   - Benzer İçerikler: `get_similar_chunks()`
-
-4. **Ollama LLM Modeli**: Elde edilen içerikler, Ollama LLM modeli (Gemma3/Qwen3) ile işlenir.
-   - Model: `ollama_model.process(similar_chunks)`
-
-5. **Yanıt Dönüşü**: Model, kullanıcıya yanıt olarak döndürür.
-   - Yanıt: `return answer`
-
-## FastAPI Endpoint
-
-Aşağıda, yukarıdaki süreci gerçekleştiren bir FastAPI endpoint örneği verilmiştir:
+Aşağıda FastAPI uygulaması, güvenli metin işleme, Qdrant yapılandırması ve diğer bileşenlerin nasıl kullanılacağını gösteren tam bir Python kodu örneği bulunmaktadır.
 
 ```python
+import os
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from qdrant_client import QdrantClient
+from langchain.llms import OllamaLLM
+from langchain.memory import ConversationBufferWindowMemory
 
+# FastAPI uygulamasının başlatılması
 app = FastAPI()
 
-class Question(BaseModel):
+# Qdrant yapılandırması
+qdrant_client = QdrantClient(url=os.getenv("QDRANT_URL"), api_key=os.getenv("QDRANT_API_KEY"))
+
+# OllamaLLM ayarları
+def create_llm():
+    return OllamaLLM(model="gpt-oss:20b")
+
+llm = create_llm()
+
+# Bellek yapılandırması
+memory = ConversationBufferWindowMemory(size=5)
+
+# QueryInput Modeli
+class QueryInput(BaseModel):
+    document_id: str
+    collection_name: str
     question: str
 
+# Güvenli metin işleme fonksiyonu
+def safe_text(text: str) -> str:
+    # Metin üzerindeki tehlikeli içerikleri temizler
+    return text.replace("<script>", "").replace("</script>", "")
+
+# Bağlamı vektör veritabanından alma fonksiyonu
+def get_context_from_vector_db(document_id: str, chunk_no: int):
+    # Semantik arama ve anahtar kelime araması ile veri al
+    results = qdrant_client.search(
+        collection_name="my_collection",
+        query=document_id,
+        filter={"chunk_no": chunk_no}
+    )
+    # Sonuçları döndür
+    return results
+
+# POST /ask/ endpoint’i
 @app.post("/ask/")
-async def ask_question(q: Question):
-    # Soru gömme
-    embedded_question = embed(q.question)
-    
-    # Qdrant'ta arama yap
-    similar_chunks = search_in_qdrant(embedded_question)
-    
-    # Ollama modelinden yanıt al
-    answer = ollama_model.process(similar_chunks)
-    
-    return {"answer": answer}
-```
+def ask(query_input: QueryInput):
+    try:
+        # Önceden kaydedilen sohbet geçmişini yükle
+        chat_history = memory.load_context()
+        # Vektör veritabanından bağlam al
+        context = get_context_from_vector_db(query_input.document_id, 0)
+        # Formatlanmış istem oluştur
+        prompt = f"{context}\nSoru: {query_input.question}"
+        # LLM’i çağır ve yanıtı al
+        response = llm.invoke(prompt)
+        # Güvenli metin uygulaması
+        safe_response = safe_text(response)
+        # Belleğe kaydet
+        memory.save_context(chat_history + [safe_response])
+        # JSON yanıtı döndür
+        return JSONResponse(content={"response": safe_response})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+```  
 
-Bu endpoint, kullanıcıdan bir soru alır, bunu gömer, Qdrant'ta arar ve benzer içerikler ile Ollama modelini kullanarak yanıt döndürür. 
-
----
+Bu kod, FastAPI'yi kullanarak bir API oluşturur ve Qdrant ile etkileşimde bulunur. Kullanıcıdan gelen soruları işler ve güvenli bir şekilde yanıt döndürür.
