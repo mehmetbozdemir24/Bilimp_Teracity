@@ -77,7 +77,7 @@ def simulate_embedding_workflow():
     
     # Simüle edilmiş embedding çıktısı (Mehmet, Hasan'ın çalışması)
     # Gerçek uygulamada: turkish-e5-large modeli ile 1024 boyutlu vektörler
-    print("\n2️⃣ Chunk'lar vektörleştiriliyor (Embedding - Cosmos-E5-Large)...")
+    print("\n2️⃣ Chunk'lar vektörleştiriliyor (Embedding - Turkish-E5-Large)...")
     embeddings_data = []
     for chunk in chunks:
         # Simüle edilmiş embedding vektörü
@@ -216,7 +216,7 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 # 3. Qdrant'a kaydet (Süleyman, Eren)
-from src.qdrant_client_manager import QdrantManager
+from qdrant_client_manager import QdrantManager
 qdrant = QdrantManager()
 qdrant.create_collection("documents", vector_size=1024)
 
@@ -244,7 +244,7 @@ results = qdrant.search("documents", query_vector, limit=5)
 # 6. LLM ile yanıt üret (Hasan, Eren)
 from llm_module import LLMGenerator
 llm = LLMGenerator(model="gemma3-12b")
-context = "\\n".join([r['payload']['content'] for r in results])
+context = "\n".join([r['payload']['content'] for r in results])
 response = llm.generate_response(user_query, context)
 
 print(response)
