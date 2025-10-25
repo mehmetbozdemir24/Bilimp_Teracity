@@ -123,11 +123,11 @@ Embedding vektör boyutunu döndürür (1024).
 
 ## Model Bilgileri
 
-- **Model**: ytu-ce-cosmos/turkish-e5-large
+- **Model**: `ytu-ce-cosmos/turkish-e5-large`
 - **Vektör Boyutu**: 1024
 - **Dil Desteği**: Türkçe ve İngilizce
 - **Normalizasyon**: L2 normalize (cosine similarity için hazır)
-- **Performans**: GPU ile ~10-15 sn/1000 metin
+- **Performans**: GPU ile ~10-15 saniye per 1000 metin
 
 ## Sık Karşılaşılan Sorunlar
 
