@@ -9,7 +9,7 @@ pytesseract
 google-generativeai
 huggingface-hub
 torch
-qdrant-client
+qdrant-client>=1.9.0
 langchain-qdrant
 langchain-huggingface
 langchain-ollama
