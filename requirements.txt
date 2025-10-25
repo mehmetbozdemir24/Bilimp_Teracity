@@ -1,4 +1,6 @@
 langchain
+langchain-openai
+langchain-community
 pypdf
 nltk
 sentence-transformers
@@ -15,3 +17,4 @@ langchain-huggingface
 langchain-ollama
 fastapi
 pydantic
+uvicorn
