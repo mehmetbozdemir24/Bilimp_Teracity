@@ -1,8 +1,8 @@
 """
-Gerçek Dosyalarla Chunking Demo
+Chunking Modülü Demo
 
-Bu script, chunking modülünün gerçek dosyalarla nasıl çalıştığını gösterir.
-Test verileriyle chunking işlemlerini uygular ve sonuçları gösterir.
+Bu script, chunking modülünün temel özelliklerini örnek verilerle gösterir.
+Metin dokümanları üzerinde farklı chunking stratejilerini uygular ve sonuçları gösterir.
 """
 
 import sys
@@ -17,7 +17,16 @@ from langchain_core.documents import Document
 
 
 def create_sample_text_document():
-    """Örnek metin dokümanı oluşturur"""
+    """
+    TÜBİTAK 1505 projesi hakkında örnek bir metin dokümanı oluşturur.
+    
+    Bu fonksiyon, demo amaçlı kullanılmak üzere proje mimarisini açıklayan
+    bir örnek doküman oluşturur. Gerçek bir dosya okumadan chunking işlemlerini
+    test etmek için kullanılır.
+    
+    Returns:
+        Document: Örnek içerik ve metadata içeren bir Document objesi
+    """
     content = """
 TÜBİTAK 1505 Projesi - Kurumsal Doküman Danışmanı
 
@@ -216,8 +225,11 @@ def main():
         print("  4. Metadata, vektör veritabanında filtreleme için kullanılır")
         print()
         
+    except ImportError as e:
+        print(f"\n❌ Import Hatası: {e}")
+        print("Lütfen gerekli kütüphaneleri yükleyin: pip install -r requirements.txt")
     except Exception as e:
-        print(f"\n❌ Hata: {e}")
+        print(f"\n❌ Beklenmeyen Hata: {type(e).__name__}: {e}")
         import traceback
         traceback.print_exc()
 
